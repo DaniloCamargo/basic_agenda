@@ -1,0 +1,15 @@
+{
+    "name": "danil/saperbackendtest_agenda",
+    "autoload": {
+        "psr-4": {
+            "Danil\\SaperbackendtestAgenda\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Danilo Camargo",
+            "email": "danilo.omnis@gmail.com"
+        }
+    ],
+    "require": {}
+}
