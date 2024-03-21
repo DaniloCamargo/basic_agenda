@@ -1,9 +1,9 @@
-API de Agenda Telefônica
+### API de Agenda Telefônica
 Esta é uma API simples para gerenciar uma agenda telefônica.
 
-Rotas
-Listar Contatos
-Retorna uma lista de todos os contatos na agenda.
+### Rotas
+## Listar Contatos
+# Retorna uma lista de todos os contatos na agenda.
 
 URL: /api/listar
 Método: GET
@@ -11,24 +11,27 @@ Resposta de Sucesso:
 Código: 200 OK
 Conteúdo: Array de objetos JSON, cada objeto representa um contato.
 
+```
 [
-    {
-        "id": 1,
-        "nome": "João",
-        "email": "joao@example.com",
-        "data_nascimento": "1990-01-01",
-        "cpf": "123.456.789-00",
-        "telefones": ["(11) 99999-9999", "(11) 88888-8888"]
-    },
-    {
-        "id": 2,
-        "nome": "Maria",
-        "email": "maria@example.com",
-        "data_nascimento": "1985-05-10",
-        "cpf": "987.654.321-00",
-        "telefones": ["(11) 77777-7777"]
-    }
+  {
+    "id": 1,
+    "nome": "João",
+    "email": "joao@example.com",
+    "data_nascimento": "1990-01-01",
+    "cpf": "123.456.789-00",
+    "telefones": ["(11) 99999-9999", "(11) 88888-8888"]
+  },
+  {
+    "id": 2,
+    "nome": "Maria",
+    "email": "maria@example.com",
+    "data_nascimento": "1985-05-10",
+    "cpf": "987.654.321-00",
+    "telefones": ["(11) 77777-7777"]
+  }
 ]
+```
+
 Adicionar Contato
 Adiciona um novo contato à agenda.
 
