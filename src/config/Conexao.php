@@ -56,15 +56,3 @@ class Conexao {
         }
     }
 }
-
-// Exemplo de uso:
-$columns = [
-    'nome' => 'VARCHAR(255)',
-    'email' => 'VARCHAR(255)',
-    'data_nascimento' => 'DATE',
-    'cpf' => 'VARCHAR(14)',
-    'telefones' => 'VARCHAR(255)'
-];
-
-$conexao = Conexao::getInstance();
-$conexao->createTable('contatos', $columns);
