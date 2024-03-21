@@ -1,6 +1,10 @@
 # API de Agenda Telefônica
 Esta é uma API simples para gerenciar uma agenda telefônica.
 
+[Cadastro](http://localhost/saperbackendtest_agenda/edit_contact.html?id=1)
+[Editar](http://localhost/saperbackendtest_agenda/create_contact.html)
+[Listar](http://localhost/saperbackendtest_agenda/list_contacts.html)
+
 ### Rotas
 ### Listar Contatos
 # Retorna uma lista de todos os contatos na agenda.
