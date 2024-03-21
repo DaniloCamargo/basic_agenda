@@ -8,21 +8,15 @@
 </head>
 <body class="container">
     <h1>List Contacts</h1>
-    <form id="SEND" method="GET">
-        <button type="submit" class="btn btn-primary">Listar</button>
-    </form>
+
+    <div id="tableContainer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('SEND').addEventListener('submit', function(event) {
-                event.preventDefault(); // Evita o comportamento padrão de enviar o formulário
-
-                // Obtém os dados do formulário
-                const formData = new FormData(this);
-
-                // Envia a requisição POST usando fetch
+            function loadContacts() {
+                // Envia a requisição GET usando fetch
                 fetch('./router.php/api/listar', {
                     method: 'GET',
                     headers: {
@@ -31,14 +25,54 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data); // Exibe a resposta da API no console
-                    // Aqui você pode fazer algo com a resposta, como exibir uma mensagem de sucesso ao usuário
+                    console.log('data', data); // Exibe a resposta da API no console
+                    let tableHtml = '<table class="table"><thead><tr><th>ID</th><th>Nome</th><th>Email</th><th>Data de Nascimento</th><th>CPF</th><th>Telefones</th><th></th></tr></thead><tbody>';
+
+                    data.forEach(contact => {
+                        let btns = `<a class="btn btn-primary me-3" href="./edit_contact.html?id=${contact.id}">Editar</a><button type="button" data-id="${contact.id}" class="btn btn-danger btn-excluir">Excluir</button>`;
+                        tableHtml += `<tr><td>${contact.id}</td><td>${contact.nome}</td><td>${contact.email}</td><td>${contact.data_nascimento}</td><td>${contact.cpf}</td><td>${contact.telefones}</td><td>${btns}</td></tr>`;
+                    });
+
+                    tableHtml += '</tbody></table>';
+
+                    document.getElementById('tableContainer').innerHTML = tableHtml;
+                    loadExcludeBtn();
+                    
                 })
                 .catch(error => {
                     console.error('Erro ao enviar requisição:', error);
-                    // Aqui você pode exibir uma mensagem de erro ao usuário, caso ocorra algum problema com a requisição
                 });
-            });
+            }
+            loadContacts();
+
+            function loadExcludeBtn() {
+                document.querySelectorAll('.btn-excluir').forEach((el)=>{
+                    el.addEventListener('click', function(event) {
+                        event.preventDefault(); // Evita o comportamento padrão de enviar o formulário
+
+                        const contatoId = event.target.dataset.id;
+                        console.log('contatoId', contatoId);
+
+                        // Envia a requisição POST usando fetch
+                        fetch(`./router.php/api/excluir/${contatoId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data); // Exibe a resposta da API no console
+                            // Aqui você pode fazer algo com a resposta, como exibir uma mensagem de sucesso ao usuário
+                            window.location.reload();
+                        })
+                        .catch(error => {
+                            console.error('Erro ao enviar requisição:', error);
+                            // Aqui você pode exibir uma mensagem de erro ao usuário, caso ocorra algum problema com a requisição
+                        });
+                    });
+                });
+            }
         });
     </script>
 </body>
