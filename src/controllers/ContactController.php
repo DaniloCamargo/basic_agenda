@@ -12,17 +12,18 @@ class ContactController {
     }
 
     // Método para adicionar um novo contato ao banco de dados
-    public function addContact($contact) {
+    public function addContact($contact, $automatic) {
       $nome = $contact->nome;
       $email = $contact->email;
-      $dataNascimento = $contact->dataNascimento;
+      $data_nascimento = $contact->data_nascimento;
       $cpf = $contact->cpf;
       $telefones = $contact->telefones;
 
-      $sql = "INSERT INTO contatos (nome, email, data_nascimento, cpf, telefones) VALUES ('$nome', '$email', '$dataNascimento', '$cpf', '$telefones')";
+      $sql = "INSERT INTO contatos (nome, email, data_nascimento, cpf, telefones) VALUES ('$nome', '$email', '$data_nascimento', '$cpf', '$telefones')";
 
       if ($this->conn->query($sql) === TRUE) {
-        return true;
+        $last_id = $this->conn->insert_id;
+        return $automatic ? $last_id : true;
       } else {
         return false;
       }

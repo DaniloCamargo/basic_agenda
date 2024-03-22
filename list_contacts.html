@@ -17,7 +17,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             function loadContacts() {
                 // Envia a requisição GET usando fetch
-                fetch('./router.php/api/listar', {
+                fetch(`./router.php/api/listar`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'

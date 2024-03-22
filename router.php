@@ -47,6 +47,9 @@ if ($method === 'GET' && $requestUri === '/api/listar') {
 } elseif ($requestUri === '/dev/build') {
   require_once './src/config/Build.php';
   Build::run();
+} elseif ($requestUri === '/dev/run/tests') {
+  require_once './src/config/RunTests.php';
+  RunTests::run();
 } else {
   $response = json_encode(['error' => 'Rota não encontrada']);
 }
