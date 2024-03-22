@@ -12,7 +12,7 @@ Esta é uma API simples para gerenciar uma agenda telefônica.
 ### Listar Contatos
 # Retorna uma lista de todos os contatos na agenda.
 
-### URL: /api/listar
+### URL: ./router.php/api/listar
 Método: GET
 ### Resposta de Sucesso:
 Código: 200 OK
@@ -42,7 +42,7 @@ Conteúdo: Array de objetos JSON, cada objeto representa um contato.
 Adicionar Contato
 Adiciona um novo contato à agenda.
 
-### URL: /api/criar
+### URL: ./router.php/api/criar
 Método: POST
 Payload de Requisição:
 ```
@@ -70,7 +70,7 @@ Conteúdo: Objeto JSON representando o novo contato criado.
 Editar Contato
 Edita um contato existente na agenda.
 
-### URL: /api/editar/:id
+### URL: ./router.php/api/editar/:id
 Método: PUT
 Payload de Requisição:
 ```
@@ -98,7 +98,7 @@ Conteúdo: Objeto JSON representando o contato editado.
 Excluir Contato
 Exclui um contato da agenda.
 
-### URL: /api/excluir/:id
+### URL: ./router.php/api/excluir/:id
 Método: DELETE
 ### Resposta de Sucesso:
 Código: 204 No Content
