@@ -36,6 +36,19 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
+                // Função para aplicar a máscara de CPF
+                function mascaraCpf(event) {
+                    const cpfInput = event.target;
+                    let cpf = cpfInput.value.replace(/\D/g, '');
+                    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+                    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+                    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                    cpfInput.value = cpf;
+                }
+
+                // Adiciona o evento de input para chamar a função de máscara
+                document.getElementById('inputC').addEventListener('change', mascaraCpf);
+
                 document.getElementById('CREATE').addEventListener('submit', function(event) {
                     event.preventDefault(); // Evita o comportamento padrão de enviar o formulário
 
