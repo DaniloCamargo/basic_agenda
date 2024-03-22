@@ -2,11 +2,11 @@
 Esta é uma API simples para gerenciar uma agenda telefônica.
 
 ### URLS
-- [Cadastro](http://localhost/saperbackendtest_agenda/create_contact.html)
-- [Editar](http://localhost/saperbackendtest_agenda/edit_contact.html?id=1)
-- [Listar](http://localhost/saperbackendtest_agenda/list_contacts.html)
+- [Cadastro](http://localhost/saperbackendtest_agenda/create_contact.html){:target="_blank"}
+- [Editar](http://localhost/saperbackendtest_agenda/edit_contact.html?id=1){:target="_blank"}
+- [Listar](http://localhost/saperbackendtest_agenda/list_contacts.html){:target="_blank"}
 
-- [Criar Banco de Dados](http://localhost/saperbackendtest_agenda/dev/build)
+- [Criar Banco de Dados](http://localhost/saperbackendtest_agenda/dev/build){:target="_blank"}
 
 ### Rotas
 ### Listar Contatos
